@@ -178,6 +178,7 @@ if (APPLE)
     set_target_properties(SampleBrowser PROPERTIES XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH "NO")
 
   if (APPLE_IOS)
+    set_target_properties(SampleBrowser PROPERTIES XCODE_ATTRIBUTE_ENABLE_BITCODE "NO")
     set_target_properties(SampleBrowser PROPERTIES XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2")
     set(OGRE_SAMPLE_CONTENTS_PATH ${PROJECT_BINARY_DIR}/bin/$(CONFIGURATION)/SampleBrowser.app)
     add_custom_command(TARGET SampleBrowser POST_BUILD
