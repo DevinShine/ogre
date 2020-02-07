@@ -792,6 +792,8 @@ namespace OgreBites
             if (startupSample && mFirstRun){
                 runSample(startupSample);
             }
+            // just for demo
+            runSampleByIndex(8);
         }
 
     protected:
