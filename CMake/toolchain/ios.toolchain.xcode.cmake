@@ -41,7 +41,7 @@ set (CMAKE_MACOSX_BUNDLE True)
 set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer" CACHE STRING "how to sign executables")
 
 # Required as of cmake 2.8.10
-set (CMAKE_OSX_DEPLOYMENT_TARGET "" CACHE STRING "Force unset of the deployment target for iOS" FORCE)
+set (CMAKE_OSX_DEPLOYMENT_TARGET "9.0" CACHE STRING "Force unset of the deployment target for iOS" FORCE)
 
 # Determine the cmake host system version so we know where to find the iOS SDKs
 find_program (CMAKE_UNAME uname /bin /usr/bin /usr/local/bin)
