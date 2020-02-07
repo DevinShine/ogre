@@ -128,19 +128,20 @@ if(OGRE_BUILD_DEPENDENCIES AND NOT EXISTS ${OGREDEPS_PATH})
 
     message(STATUS "Building ZZIPlib")
     file(DOWNLOAD
-        https://github.com/gdraheim/zziplib/archive/develop.zip
-        ${PROJECT_BINARY_DIR}/zziplib-develop.tar.gz)
+        https://github.com/devinshine/zziplib/archive/ios_develop.zip
+        ${PROJECT_BINARY_DIR}/zziplib-ios_develop.tar.gz)
     execute_process(COMMAND ${CMAKE_COMMAND}
-        -E tar xf zziplib-develop.tar.gz WORKING_DIRECTORY ${PROJECT_BINARY_DIR})
-    execute_process(COMMAND ${BUILD_COMMAND_COMMON}
+        -E tar xf zziplib-ios_develop.tar.gz WORKING_DIRECTORY ${PROJECT_BINARY_DIR})
+    execute_process(COMMAND 
+        ${CMAKE_COMMAND} -DCMAKE_INSTALL_PREFIX=${OGREDEPS_PATH} -G ${CMAKE_GENERATOR} -Wno-dev
         -DZLIB_ROOT=${OGREDEPS_PATH}
         -DZZIPMMAPPED=OFF -DZZIPCOMPAT=OFF -DZZIPLIBTOOL=OFF -DZZIPFSEEKO=OFF -DZZIPWRAP=OFF -DZZIPSDL=OFF -DZZIPBINS=OFF -DZZIPTEST=OFF -DZZIPDOCS=OFF -DBASH=sh
         -DBUILD_STATIC_LIBS=TRUE
         -DBUILD_SHARED_LIBS=${OGREDEPS_SHARED}
-        ${PROJECT_BINARY_DIR}/zziplib-develop
-        WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/zziplib-develop)
+        ${PROJECT_BINARY_DIR}/zziplib-ios_develop
+        WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/zziplib-ios_develop)
     execute_process(COMMAND ${CMAKE_COMMAND} 
-        --build ${PROJECT_BINARY_DIR}/zziplib-develop ${BUILD_COMMAND_OPTS})
+        --build ${PROJECT_BINARY_DIR}/zziplib-ios_develop ${BUILD_COMMAND_OPTS})
 
     message(STATUS "Building pugixml")
     file(DOWNLOAD
